@@ -14,8 +14,6 @@ FindThe**Apple** is using the following libraries**:
 - HealthKit for the integration with **Apple** Health
 - CoreML for fruit/vegetable recognition  
 
-FindThe**Apple** has been written on Swift
-
 ---
 _*C vitamin intake_  
 _**Mainly_
