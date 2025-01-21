@@ -19,7 +19,7 @@ struct HomeScreen: View {
             // Felső bar
             HStack {
                 Button(action: {
-                    // Settings gomb akció
+                    // Settings
                 }) {
                     Text("Settings")
                         .foregroundColor(.teal)
@@ -77,7 +77,7 @@ struct HomeScreen: View {
                         x: .value("Day", day),
                         y: .value("Sugar (g)", grams)
                     )
-                    .foregroundStyle(Color.orange)
+                    .foregroundStyle(Color.teal)
                     .interpolationMethod(.catmullRom)
                 }
             }
