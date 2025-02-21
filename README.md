@@ -1,2 +1,5 @@
 ![FindTheApple_logo-white](https://github.com/user-attachments/assets/c9615a0a-952c-4b9f-9e11-9ca7a2c7be43)
 # FindTheApple Project
+The World Health Organization (WHO) recommends that eating 5 servings of fruit and vegetables a day is the key to a healthy life. The FindThe**Apple** app is designed to help people eat the recommended 5 servings of fruits and vegetables a day, eat more consciously and lead a healthier lifestyle. The Rainbow Diet recommends eating foods rich in different colors for a healthy lifestyle and disease prevention. Food colors generally indicate nutrients and phytochemicals (biologically active compounds found in plants) that are important for maintaining good health. Eating a rainbow diet can reduce the risk of chronic diseases such as obesity, cardiovascular disease, cancer and diabetes. 
+The app counts fruits/veggies when 5 are selected per day, gives a reward, and provides monthly statistics on fruit/veggie consumption. FindThe**Apple** uses strong integration with HealthKit, allowing users to sync their daily vitamin intake with **Apple** Health.
+And thanks to the user-centric GUI, navigating the app is easier than ever before.
