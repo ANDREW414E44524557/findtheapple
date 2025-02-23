@@ -1,7 +1,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isWelcomePresented = true
+
     var body: some View {
-            HomeScreen()
+        HomeScreen()
+            .sheet(isPresented: $isWelcomePresented) {
+                WelcomeView()
+            }
     }
 }
