@@ -7,48 +7,64 @@ struct HomeScreen: View {
     @State private var showDataView: Bool = false
     @StateObject private var selectionManager = SelectionManager()
 
-    var categories = ["Fruits", "Vegetables"]
+    var categories = ["Fruits", "Vegetables", "Rainbow"]
     
     var filteredFruits: [FruitView] {
         let fruits = [
-            FruitView(emoji: "🍎", name: "Apple", action: showData),
-            FruitView(emoji: "🍐", name: "Pear", action: showData),
-            FruitView(emoji: "🍊", name: "Orange", action: showData),
-            FruitView(emoji: "🍋", name: "Lemon", action: showData),
-            FruitView(emoji: "🍋‍🟩", name: "Lime", action: showData),
-            FruitView(emoji: "🍌", name: "Banana", action: showData),
-            FruitView(emoji: "🍉", name: "Watermelon", action: showData),
-            FruitView(emoji: "🍇", name: "Grapes", action: showData),
-            FruitView(emoji: "🍓", name: "Strawberry", action: showData),
-            FruitView(emoji: "🫐", name: "Blueberry", action: showData),
-            FruitView(emoji: "🍈", name: "Melon", action: showData),
-            FruitView(emoji: "🍒", name: "Cherry", action: showData),
-            FruitView(emoji: "🍑", name: "Peach", action: showData),
-            FruitView(emoji: "🥭", name: "Mango", action: showData),
-            FruitView(emoji: "🍍", name: "Pineapple", action: showData),
-            FruitView(emoji: "🥥", name: "Coconut", action: showData),
-            FruitView(emoji: "🥝", name: "Kiwi", action: showData),
-            FruitView(emoji: "🍅", name: "Tomato", action: showData)
+            FruitView(emoji: "🍎", name: "Apple", action: showData, color: .red),
+            FruitView(emoji: "🍐", name: "Pear", action: showData, color: .green),
+            FruitView(emoji: "🍊", name: "Orange", action: showData, color: .orange),
+            FruitView(emoji: "🍋", name: "Lemon", action: showData, color: .yellow),
+            FruitView(emoji: "🍋‍🟩", name: "Lime", action: showData, color: .yellow),
+            FruitView(emoji: "🍌", name: "Banana", action: showData, color: .yellow),
+            FruitView(emoji: "🍉", name: "Watermelon", action: showData, color: .pink),
+            FruitView(emoji: "🍇", name: "Grapes", action: showData, color: .purple),
+            FruitView(emoji: "🍓", name: "Strawberry", action: showData, color: .red),
+            FruitView(emoji: "🫐", name: "Blueberry", action: showData, color: .blue),
+            FruitView(emoji: "🍈", name: "Melon", action: showData, color: .yellow),
+            FruitView(emoji: "🍒", name: "Cherry", action: showData, color: .red),
+            FruitView(emoji: "🍑", name: "Peach", action: showData, color: .orange),
+            FruitView(emoji: "🥭", name: "Mango", action: showData, color: .yellow),
+            FruitView(emoji: "🍍", name: "Pineapple", action: showData, color: .yellow),
+            FruitView(emoji: "🥥", name: "Coconut", action: showData, color: .brown),
+            FruitView(emoji: "🥝", name: "Kiwi", action: showData, color: .green),
+            FruitView(emoji: "🍅", name: "Tomato", action: showData, color: .red)
         ]
         return fruits.filter { searchText.isEmpty || $0.name.lowercased().contains(searchText.lowercased()) }
     }
 
     var filteredVegetables: [VegetableView] {
         let vegetables = [
-            VegetableView(emoji: "🥕", name: "Carrot", action: showData),
-            VegetableView(emoji: "🌽", name: "Corn", action: showData),
-            VegetableView(emoji: "🥔", name: "Potato", action: showData),
-            VegetableView(emoji: "🧅", name: "Onion", action: showData),
-            VegetableView(emoji: "🥑", name: "Avocado", action: showData),
-            VegetableView(emoji: "🍆", name: "Eggplant", action: showData),
-            VegetableView(emoji: "🫛", name: "Pea", action: showData),
-            VegetableView(emoji: "🫑", name: "Bell pepper", action: showData),
-            VegetableView(emoji: "🌶️", name: "Hot pepper", action: showData),
-            VegetableView(emoji: "🥦", name: "Broccoli", action: showData),
-            VegetableView(emoji: "🥒", name: "Cucumber", action: showData),
-            VegetableView(emoji: "🥬", name: "Lettuce", action: showData),
+            VegetableView(emoji: "🍆", name: "Eggplant", action: showData, color: .purple),
+            VegetableView(emoji: "🥑", name: "Avocado", action: showData, color: .green),
+            VegetableView(emoji: "🫛", name: "Peas", action: showData, color: .green),
+            VegetableView(emoji: "🥦", name: "Broccoli", action: showData, color: .green),
+            VegetableView(emoji: "🥬", name: "Lettuce", action: showData, color: .green),
+            VegetableView(emoji: "🥒", name: "Cucumber", action: showData, color: .green),
+            VegetableView(emoji: "🌶️", name: "Hot pepper", action: showData, color: .red),
+            VegetableView(emoji: "🫑", name: "Bell pepper", action: showData, color: .green),
+            VegetableView(emoji: "🌽", name: "Corn", action: showData, color: .yellow),
+            VegetableView(emoji: "🥕", name: "Carrot", action: showData, color: .orange),
+            VegetableView(emoji: "🫒", name: "Olive", action: showData, color: .green),
+            VegetableView(emoji: "🧄", name: "Garlic", action: showData, color: .brown),
+            VegetableView(emoji: "🧅", name: "Onion", action: showData, color: .yellow),
+            VegetableView(emoji: "🥔", name: "Potato", action: showData, color: .brown),
+            VegetableView(emoji: "🍠", name: "Sweet potato", action: showData, color: .orange),
         ]
         return vegetables.filter { searchText.isEmpty || $0.name.lowercased().contains(searchText.lowercased()) }
+    }
+
+    var rainbowItems: [RainbowItemView] {
+        let rainbowItems = [
+            RainbowItemView(emoji: "🍎", name: "Apple", color: .red),
+            RainbowItemView(emoji: "🍊", name: "Orange", color: .orange),
+            RainbowItemView(emoji: "🍋", name: "Lemon", color: .yellow),
+            RainbowItemView(emoji: "🍉", name: "Watermelon", color: .pink),
+            RainbowItemView(emoji: "🍇", name: "Grapes", color: .purple),
+            RainbowItemView(emoji: "🫐", name: "Blueberry", color: .blue),
+            RainbowItemView(emoji: "🥦", name: "Broccoli", color: .green),
+        ]
+        return rainbowItems.filter { searchText.isEmpty || $0.name.lowercased().contains(searchText.lowercased()) }
     }
 
     func showData(itemName: String) {
@@ -93,9 +109,17 @@ struct HomeScreen: View {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
                         if selectedCategory == "Fruits" {
-                            ForEach(filteredFruits, id: \.name) { fruit in fruit }
-                        } else {
-                            ForEach(filteredVegetables, id: \.name) { vegetable in vegetable }
+                            ForEach(filteredFruits, id: \.name) { fruit in
+                                fruit
+                            }
+                        } else if selectedCategory == "Vegetables" {
+                            ForEach(filteredVegetables, id: \.name) { vegetable in
+                                vegetable
+                            }
+                        } else if selectedCategory == "Rainbow" {
+                            ForEach(rainbowItems, id: \.name) { rainbowItem in
+                                RainbowItemView(emoji: rainbowItem.emoji, name: rainbowItem.name, color: rainbowItem.color) // Itt helyesen hívom meg
+                            }
                         }
                     }
                     .padding()
@@ -130,13 +154,14 @@ struct FruitView: View {
     let emoji: String
     let name: String
     let action: (String) -> Void
+    let color: Color  // Szín hozzáadása
     
     var body: some View {
         VStack {
             Text(emoji)
                 .font(.system(size: 53))
                 .frame(width: 133, height: 100)
-                .background(RoundedRectangle(cornerRadius: 20).fill(Color.gray.opacity(0.2)))
+                .background(RoundedRectangle(cornerRadius: 20).fill(color.opacity(0.2)))  // Szín beállítása
                 .onTapGesture { action(name) }
             
             Text(name)
@@ -151,19 +176,39 @@ struct VegetableView: View {
     let emoji: String
     let name: String
     let action: (String) -> Void
+    let color: Color  // Szín hozzáadása
     
     var body: some View {
         VStack {
             Text(emoji)
                 .font(.system(size: 53))
                 .frame(width: 133, height: 100)
-                .background(RoundedRectangle(cornerRadius: 20).fill(Color.gray.opacity(0.2)))
+                .background(RoundedRectangle(cornerRadius: 20).fill(color.opacity(0.2)))  // Szín beállítása
                 .onTapGesture { action(name) }
             
             Text(name)
                 .font(.headline)
                 .foregroundColor(.black)
                 .onTapGesture { action(name) }
+        }
+    }
+}
+
+struct RainbowItemView: View {
+    let emoji: String
+    let name: String
+    let color: Color  // Szín hozzáadása
+    
+    var body: some View {
+        VStack {
+            Text(emoji)
+                .font(.system(size: 53))
+                .frame(width: 133, height: 100)
+                .background(RoundedRectangle(cornerRadius: 20).fill(color.opacity(0.2)))  // Szín beállítása
+            
+            Text(name)
+                .font(.headline)
+                .foregroundColor(.black)
         }
     }
 }
