@@ -6,6 +6,8 @@ struct HomeScreen: View {
     @State private var selectedItemName: String = ""
     @State private var showDataView: Bool = false
     @State private var selectedItems: Set<String> = []
+    @StateObject private var rewardManager = RewardManager()
+    @State private var showReward = false
 
     var categories = ["Fruits", "Vegetables"]
     
@@ -65,6 +67,11 @@ struct HomeScreen: View {
             selectedItems.remove(itemName)
         } else {
             selectedItems.insert(itemName)
+            rewardManager.checkRewards(selectedItems: selectedItems, newItem: itemName)
+            
+            if rewardManager.earnedReward != nil {
+                showReward = true  // Mutassa a jutalom ablakot
+            }
         }
     }
     
@@ -102,6 +109,11 @@ struct HomeScreen: View {
         .navigationTitle("FindTheApple")
         .sheet(isPresented: $showDataView) {
             DataView(itemName: selectedItemName)
+        }
+        .sheet(isPresented: $showReward) {
+            if let reward = rewardManager.earnedReward {
+                RewardView(reward: reward, isPresented: $showReward, rewardManager: rewardManager)
+            }
         }
     }
 }
