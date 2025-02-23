@@ -111,20 +111,6 @@ struct HomeScreen: View {
                 
                 Spacer()
             }
-
-            // Gratulációs üzenet
-            if selectionManager.showCongratsMessage {
-                VStack {
-                    Spacer()
-                    Text("🎉 Congratulations! You earned a reward! 🍏")
-                        .font(.title)
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 20).fill(Color.white.opacity(0.9)))
-                        .shadow(radius: 10)
-                        .padding()
-                }
-                .transition(.move(edge: .bottom))
-            }
         }
         .animation(.easeInOut, value: selectionManager.hasEarnedReward)
         .navigationTitle("FindTheApple")
