@@ -4,20 +4,50 @@ class RewardManager: ObservableObject {
     @Published var earnedReward: Reward? = nil  // Ez tárolja az elért jutalmat
 
     private let redFruitsAndVegetables: Set<String> = [
-        "Apple", "Strawberry", "Cherry", "Tomato", "Hot pepper", "Watermelon"
+        "Apple", "Strawberry", "Tomato"
+    ]
+    
+    private let greenFruitsAndVegetables: Set<String> = [
+        "Pear", "Broccoli", "Lettuce"
+    ]
+    
+    private let yellowFruitsAndVegetables: Set<String> = [
+        "Orange", "Corn", "Carrot"
+    ]
+    
+    private let whiteFruitsAndVegetables: Set<String> = [
+        "Coconut", "Garlic", "Potato"
+    ]
+    
+    private let blueFruitsAndVegetables: Set<String> = [
+        "Blueberry", "Grapes", "Eggplant"
     ]
     
     func checkRewards(selectedItems: Set<String>, newItem: String) {
         let selectionCount = selectedItems.count  // Nem kell külön tárolni
         
-        // Apple Award (minden 5. kiválasztásra)
         if selectionCount % 5 == 0 {
             earnedReward = Reward(name: "Apple Award", emoji: "🍏", text: "Congratulations! You found the Apple by eating 5 fruits and/or vegetables!")
         }
         
-        // Heart Award (ha piros gyümölcs/zöldség)
         if redFruitsAndVegetables.contains(newItem) {
             earnedReward = Reward(name: "Heart Award", emoji: "🩷", text: "Congratulations! You helped your heart by eating some red fruits/vegetables!")
+        }
+
+        if greenFruitsAndVegetables.contains(newItem) {
+            earnedReward = Reward(name: "Peace Award", emoji: "🪷", text: "Congratulations! You reduced stress by eating some green fruits/vegetables!")
+        }
+        
+        if yellowFruitsAndVegetables.contains(newItem) {
+            earnedReward = Reward(name: "Vision Award", emoji: "👀", text: "Congratulations! You helped your vison by eating some yellow fruits/vegetables!")
+        }
+
+        if whiteFruitsAndVegetables.contains(newItem) {
+            earnedReward = Reward(name: "Skeleton Award", emoji: "🍖", text: "Congratulations! You helped your bones by eating some white fruits/vegetables!")
+        }
+        
+        if blueFruitsAndVegetables.contains(newItem) {
+            earnedReward = Reward(name: "Immune Award", emoji: "💉", text: " Congratulations! You helped your immune system by eating some blue fruits/vegetables!")
         }
     }
 }
