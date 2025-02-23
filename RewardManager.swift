@@ -1,7 +1,8 @@
 import SwiftUI
 
 class RewardManager: ObservableObject {
-    @Published var earnedReward: Reward? = nil  // Ez tárolja az elért jutalmat
+    @Published var earnedReward: Reward? = nil
+    
 
     private let redFruitsAndVegetables: Set<String> = [
         "Apple", "Strawberry", "Tomato"
@@ -24,7 +25,7 @@ class RewardManager: ObservableObject {
     ]
     
     func checkRewards(selectedItems: Set<String>, newItem: String) {
-        let selectionCount = selectedItems.count  // Nem kell külön tárolni
+        let selectionCount = selectedItems.count
         
         if selectionCount % 5 == 0 {
             earnedReward = Reward(name: "Apple Award", emoji: "🍏", text: "Congratulations! You found the Apple by eating 5 fruits and/or vegetables!")
@@ -52,14 +53,12 @@ class RewardManager: ObservableObject {
     }
 }
 
-// Reward modell az adatok tárolására
 struct Reward {
     let name: String
     let emoji: String
     let text: String
 }
 
-// Reward UI megjelenítő nézet
 struct RewardView: View {
     let reward: Reward
     @Binding var isPresented: Bool
