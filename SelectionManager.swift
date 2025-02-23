@@ -19,8 +19,6 @@ class SelectionManager: ObservableObject {
         selections.append(now)
         resetOldSelections()
         saveSelections()
-        
-        checkForReward()
     }
     
     func saveSelections() {
@@ -37,19 +35,5 @@ class SelectionManager: ObservableObject {
         let now = Date()
         selections = selections.filter { now.timeIntervalSince($0) < 86400 }
         saveSelections()
-    }
-    
-    @MainActor
-    func checkForReward() {
-        if selections.count >= 5 && !hasEarnedReward {
-            hasEarnedReward = true
-            showCongratsMessage = true
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-                Task { @MainActor in
-                    self?.showCongratsMessage = false
-                }
-            }
-        }
     }
 }
