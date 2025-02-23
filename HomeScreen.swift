@@ -1,3 +1,4 @@
+
 import SwiftUI
 
 struct HomeScreen: View {
@@ -5,7 +6,6 @@ struct HomeScreen: View {
     @State private var selectedCategory: String = "Fruits"
     @State private var selectedItemName: String = ""
     @State private var showDataView: Bool = false
-    @StateObject private var selectionManager = SelectionManager()
 
     var categories = ["Fruits", "Vegetables"]
     
@@ -58,7 +58,6 @@ struct HomeScreen: View {
     func showData(itemName: String) {
         selectedItemName = itemName
         showDataView = true
-        selectionManager.addSelection()
     }
     
     var body: some View {
@@ -112,7 +111,6 @@ struct HomeScreen: View {
                 Spacer()
             }
         }
-        .animation(.easeInOut, value: selectionManager.hasEarnedReward)
         .navigationTitle("FindTheApple")
         .sheet(isPresented: $showDataView) {
             DataView(itemName: selectedItemName)
