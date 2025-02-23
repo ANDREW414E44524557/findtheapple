@@ -7,7 +7,7 @@ struct HomeScreen: View {
     @State private var showDataView: Bool = false
     @StateObject private var selectionManager = SelectionManager()
 
-    var categories = ["Fruits", "Vegetables", "Rainbow"]
+    var categories = ["Fruits", "Vegetables"]
     
     var filteredFruits: [FruitView] {
         let fruits = [
@@ -50,21 +50,9 @@ struct HomeScreen: View {
             VegetableView(emoji: "🧅", name: "Onion", action: showData, color: .yellow),
             VegetableView(emoji: "🥔", name: "Potato", action: showData, color: .brown),
             VegetableView(emoji: "🍠", name: "Sweet potato", action: showData, color: .orange),
+            VegetableView(emoji: "🫚", name: "Ginger", action: showData, color: .brown),
         ]
         return vegetables.filter { searchText.isEmpty || $0.name.lowercased().contains(searchText.lowercased()) }
-    }
-
-    var rainbowItems: [RainbowItemView] {
-        let rainbowItems = [
-            RainbowItemView(emoji: "🍎", name: "Apple", color: .red),
-            RainbowItemView(emoji: "🍊", name: "Orange", color: .orange),
-            RainbowItemView(emoji: "🍋", name: "Lemon", color: .yellow),
-            RainbowItemView(emoji: "🍉", name: "Watermelon", color: .pink),
-            RainbowItemView(emoji: "🍇", name: "Grapes", color: .purple),
-            RainbowItemView(emoji: "🫐", name: "Blueberry", color: .blue),
-            RainbowItemView(emoji: "🥦", name: "Broccoli", color: .green),
-        ]
-        return rainbowItems.filter { searchText.isEmpty || $0.name.lowercased().contains(searchText.lowercased()) }
     }
 
     func showData(itemName: String) {
@@ -115,10 +103,6 @@ struct HomeScreen: View {
                         } else if selectedCategory == "Vegetables" {
                             ForEach(filteredVegetables, id: \.name) { vegetable in
                                 vegetable
-                            }
-                        } else if selectedCategory == "Rainbow" {
-                            ForEach(rainbowItems, id: \.name) { rainbowItem in
-                                RainbowItemView(emoji: rainbowItem.emoji, name: rainbowItem.name, color: rainbowItem.color) // Itt helyesen hívom meg
                             }
                         }
                     }
