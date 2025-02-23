@@ -70,7 +70,7 @@ struct HomeScreen: View {
             rewardManager.checkRewards(selectedItems: selectedItems, newItem: itemName)
             
             if rewardManager.earnedReward != nil {
-                showReward = true  // Mutassa a jutalom ablakot
+                showReward = true
             }
         }
     }
@@ -131,7 +131,7 @@ struct FruitView: View {
             VStack {
                 Text(emoji)
                     .font(.system(size: 53))
-                    .frame(width: 150, height: 92)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(RoundedRectangle(cornerRadius: 30).fill(color.opacity(0.2)))
                     .onTapGesture { action(name) }
                 
@@ -163,7 +163,7 @@ struct VegetableView: View {
             VStack {
                 Text(emoji)
                     .font(.system(size: 53))
-                    .frame(width: 150, height: 92)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(RoundedRectangle(cornerRadius: 30).fill(color.opacity(0.2)))
                     .onTapGesture { action(name) }
                 
